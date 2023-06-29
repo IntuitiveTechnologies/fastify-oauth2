@@ -261,6 +261,13 @@ fastifyOauth2.EPIC_GAMES_CONFIGURATION = {
   tokenPath: '/epic/oauth/v1/token'
 }
 
+fastifyOauth2.AZURE_AD_CONFIGURATION = (tenantId) => {
+  authorizeHost: 'https://login.microsoftonline.com',
+  authorizePath: `/${tenantId}/oauth2/v2.0/authorize`,
+  tokenHost: 'https://login.microsoftonline.com',
+  tokenPath: '/${tenantId}/oauth2/v2.0/token'
+}
+
 module.exports = fp(fastifyOauth2, {
   fastify: '4.x',
   name: '@fastify/oauth2'

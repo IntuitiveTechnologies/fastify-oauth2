@@ -14,6 +14,7 @@ interface FastifyOauth2 extends FastifyPluginCallback<fastifyOauth2.FastifyOAuth
   VATSIM_CONFIGURATION: fastifyOauth2.ProviderConfiguration;
   VATSIM_DEV_CONFIGURATION: fastifyOauth2.ProviderConfiguration;
   EPIC_GAMES_CONFIGURATION: fastifyOauth2.ProviderConfiguration;
+  AZURE_AD_CONFIGURATION: (tenantId) => fastifyOauth2.ProviderConfiguration;
 }
 
 declare namespace fastifyOauth2 {
@@ -87,6 +88,8 @@ declare namespace fastifyOauth2 {
       secretParamName?: string | undefined;
       /** Parameter name used to send the client id. Default to client_id. */
       idParamName?: string | undefined;
+      /** Parameter used by Microsoft Azure */
+      tenantId?: string;
     };
     auth: ProviderConfiguration;
     /**
